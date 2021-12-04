@@ -1,0 +1,72 @@
+body {
+    min-height: 200%;
+}
+
+input[type=text] {
+    display: flex;
+    border-radius: 5px; 
+    border-color: rgba(60,59,63,0.6);
+    width: 20vw;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #6DD5FA !important;
+    color: #1f1f1f;
+}
+
+.shareLink {
+    text-align: center;
+    width: 21vw;
+}
+
+.unselectable {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+ 
+    /*
+      Introduced in Internet Explorer 10.
+      See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+    */
+    -ms-user-select: none;
+    user-select: none;
+ }
+
+#linksContainer {
+    flex-direction: column;
+}
+
+#image {
+    width: 30vw;
+    height: auto;
+    align-self: center;
+    align-items: center;
+    text-align: center;
+}
+
+#list {
+    border: 5px black;
+    border-radius: 5px;
+}
+
+#list p, #iframeText {
+    font: arial;
+    font-size: 18px;
+    background-color:#2980b9;
+}
+
+h4 {
+    text-align: center;
+}
+
+#title {
+    background-color: #1f1f1f;
+    border-radius: 500px;
+    font-size: 28px;
+    text-align: center;
+    float: center;
+    align-self: center;
+    align-content: center;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

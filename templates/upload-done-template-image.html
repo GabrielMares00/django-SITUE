@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SITUE - Upload Finished</title>
+
+    <link rel="icon" href="../static/css/favicon.ico">
+
+    <link href="../static/css/reset.css" rel="stylesheet">
+    <link href="https://www.w3schools.com/w3css/3/w3.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+    <link href="../static/css/index.css" rel="stylesheet">
+    <link href="../static/css/popup.css" rel="stylesheet">
+    <link href="../static/css/upload.css" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../static/js/Load-Nav-Bar.js"></script>
+    <script src="../static/js/Load-Footer.js"></script>
+</head>
+<body>
+    <main>
+    <div id="main-page">
+        <div id="nav-bar">
+            {% include 'nav-bar.html' %}
+        </div>
+
+        <br><br><br><br><br><br>
+
+        <header>Your image has been uploaded</header>
+        <p>Here are your share links</p>
+
+        <br><br><br>
+ 
+        <div id="shareContainer">
+        <center>
+        <div id="imageContainer">
+            <a href="https://google.com"><img src="uploads/images/VlujRxLPNDpC.png" id="image"></img></a>
+        </div>
+
+        <br><br><br>
+
+        <div id="linksContainer" class="unselectable">
+            <p>Image Share Page Link</p>
+            <div class="popup" onclick="copyOnClick()">
+                <input type="text" class="shareLink unselectable" id="copy-text-share" value="Link to this page1" readonly><br><br>
+                <span class="popuptext" id="popupSucces">Link copied succesfully</span>
+            </div>
+
+            <p>Direct Link</p>
+            <div class="popup" onclick="copyOnClick()">
+                <input type="text" class="shareLink unselectable" id="copy-text-direct" value="Link to this page2" readonly><br><br>
+                <span class="popuptext" id="popupSucces">Link copied succesfully</span>
+            </div>
+
+            <p>BBCode (Forums)</p>
+            <div class="popup" onclick="copyOnClick()">
+                <input type="text" class="shareLink unselectable" id="copy-text-bbcode" value="Link to this page3" readonly><br><br>
+                <span class="popuptext" id="popupSucces">Link copied succesfully</span>
+            </div>
+
+            <p>Markdown (Reddit)</p>
+            <div class="popup" onclick="copyOnClick()">
+                <input type="text" class="shareLink unselectable" id="copy-text-markdown" value="Link to this page4" readonly><br><br>
+                <span class="popuptext" id="popupSucces">Link copied succesfully</span>
+            </div>
+        </div>
+        </center>
+    </div>
+
+        <script src="../static/js/copy-on-click.js"></script>
+
+        <script>
+            function copyOnClick() {
+              return true;
+            }
+            </script>
+    </div>
+</main>
+</body>
+</html>

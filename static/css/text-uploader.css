@@ -1,0 +1,45 @@
+.titleArea {
+    width: 20%;
+    height: 6vh;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #6DD5FA !important;
+    resize: none;
+    border-style: none;
+    border-color: transparent;
+    text-align: center;
+}
+
+.textArea {
+    width: 50%;
+    height: 20vh;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #6DD5FA !important;
+    resize: none;
+    border-style: none;
+    border-color: transparent;
+}
+
+input[type=text] {
+    max-width: 15vw;
+    min-height: 1vh;
+    text-align: center;
+    background: #6DD5FA !important;
+    color: #1f1f1f;
+}
+
+input[type=submit] {
+    background-color: #2980b9;
+    border: 1px solid black;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    display: inline;
+}
