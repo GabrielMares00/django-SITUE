@@ -1,14 +1,16 @@
 * {box-sizing: border-box}
 
-input[type=text], input[type=password] {
-  max-width: 15vw;
+input[type=text], input[type=password], input[type=email] {
+  min-width: 20vw;
   min-height: 1vh;
   text-align: center;
   background: #6DD5FA !important;
   color: #1f1f1f;
+  margin-top: 5vh;
+  margin-bottom: 2vh;
 }
 
-input[type=text]:focus, input[type=password]:focus {
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
   background-color: #ddd;
   outline: none;
 }
@@ -35,10 +37,19 @@ button:hover {
   opacity:1;
 }
 
-input[type=text], input[type=password], input:active {
-  max-width: 15vw;
+input:active {
+  min-width: 20vw;
   min-height: 1vh;
   text-align: center;
   background: #6DD5FA !important;
   color: #1f1f1f;
+}
+
+.errorlist li {
+  list-style: none;
+}
+
+.errorlist li:after {
+  content: "\A";
+  white-space: pre;
 }

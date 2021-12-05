@@ -24,29 +24,20 @@
 
         <br><br><br><br><br><br>
 
+        <header>Log In</header>
+        <p>Access your account and past image and text uploads by logging in</p>
+
         <center>
-        <form action="">
-              <header>Log In</header>
-              <p>Access your account and past image and text uploads by logging in</p>
-              <br>
-
-              <label for="username"><b>Username</b></label>
-              <br>
-              <input type="text" placeholder="Username" name="username" required>
-              <br>
-              <br>
-
-              <label for="psw"><b>Password</b></label>
-              <br>
-              <input type="password" placeholder="Repeat Password" name="psw" required>
-              <br>
-              <br>
+        <form action="/login" method="post">
+            <br>
+            {% csrf_token %}
+            {{ form | linebreaks }}
 
             <p>
                 Don't have an account yet? <li><a href = "signup">Sign up here</a></li>
             </p>
 
-            <button type="submit" class="signupbtn">Log In</button>
+            <input type="submit" class="signupbtn" value="Log In">
         </form> 
         </center>
         

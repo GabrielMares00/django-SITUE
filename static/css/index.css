@@ -5,7 +5,7 @@ html {
 body {
     margin: 0;
     background: rgb(96,92,60);
-    background: linear-gradient(to top, #2980b9, #6dd5fa, #ffffff);
+    background: linear-gradient(to top, #6dd5fa, #ffffff);
 }
 
 header, p , form {

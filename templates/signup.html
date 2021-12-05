@@ -25,36 +25,10 @@
         <br><br><br><br><br><br>
 
         <center>
-        <form action="" style="border-radius: 5px; border-color:  rgba(60,59,63,0.6);">
-              <header>Sing Up</header>
-              <p>Fill the details required below in order to be able to create an account.</p>
-              <br>
-
-              <label for="username"><b>Username</b></label>
-              <br>
-              <input type="text" placeholder="Username" name="username" required style="text-align: center;">
-              <br>
-              <br>
-
-              <label for="email"><b>Email</b></label>
-              <br>
-              <input type="text" placeholder="Enter Email" name="email" required style="text-align: center;">
-              <br>
-              <br>
-
-              <label for="psw"><b>Password</b></label>
-              <br>
-              <input type="password" placeholder="Password" name="psw" required style="text-align: center;">
-              <br>
-              <br>
-
-              <label for="psw-repeat"><b>Repeat Password</b></label>
-              <br>
-              <input type="password" placeholder="Repeat Password" name="psw-repeat" required style="text-align: center;">
-              <br>
-              <br>
-
-            <button type="submit" class="signupbtn">Sign Up</button>
+        <form action="/signup" method="post">
+            {% csrf_token %}
+            {{ form | linebreaks }}
+            <input type="submit" class = "signupbtn" value="Sign Up">
         </form> 
         </center>
         
