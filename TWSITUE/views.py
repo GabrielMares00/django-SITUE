@@ -69,7 +69,10 @@ def loginPage(request):
 
             return redirect(home)
     else:
-        form = AuthForm()
+        if request.user.is_authenticated:
+            return redirect(home)
+        else:
+            form = AuthForm()
 
     return render(request, "login.html", {'form': form})
 

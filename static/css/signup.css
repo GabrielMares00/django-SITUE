@@ -53,3 +53,7 @@ input:active {
   content: "\A";
   white-space: pre;
 }
+
+li {
+  color: #6DD5FA;
+}

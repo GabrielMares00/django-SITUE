@@ -18,16 +18,24 @@
 
 <body>
     <main>
-        <div id="nav-bar">
-            {% include 'nav-bar.html' %}
-        </div>
+{#        <div id="nav-bar">#}
+{#            {% include 'nav-bar.html' %}#}
+{#        </div>#}
 
         <br><br><br><br><br><br>
+
+        <header>Sign up</header>
+        <p>Create your account by completing the camps with the requested data</p>
 
         <center>
         <form action="/signup" method="post">
             {% csrf_token %}
             {{ form | linebreaks }}
+
+            <p>
+                Already have an account? <li class="singlink"><a href = "login">Log in here</a></li>
+            </p>
+
             <input type="submit" class = "signupbtn" value="Sign Up">
         </form> 
         </center>
