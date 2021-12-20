@@ -12,5 +12,6 @@ urlpatterns = [
     path('image-search', views.imageSearcher),
     path('text-search', views.textSearcher),
     path('image-uploader', views.imageUploader),
-    path('text-uploader', views.textUploader)
+    path('text-uploader', views.textUploader),
+    path('logout', views.logoutView)
 ]
