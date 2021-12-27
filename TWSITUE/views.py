@@ -4,7 +4,9 @@ from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from TWSITUE.forms import ImageUploadForm
 
 
 class UserCreateForm(UserCreationForm):
@@ -73,7 +75,21 @@ def textSearcher(request):
 
 
 def imageUploader(request):
-    return render(request, "image-uploader.html", {})
+    if request.method == 'POST':
+        form = ImageUploadForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            form.save()
+
+            return redirect(imageUploadedView)
+    else:
+        form = ImageUploadForm()
+
+    return render(request, 'image-uploader.html', {'form': form})
+
+
+def imageUploadedView(request):
+    return HttpResponse('successfully uploaded')
 
 
 def textUploader(request):

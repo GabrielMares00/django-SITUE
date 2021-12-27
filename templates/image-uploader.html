@@ -29,15 +29,10 @@
 {#    <center><img src="../static/css/Logo.png" class="logo"></center>#}
     <header>Select Image</header>
 
-    <form action="" method="POST" enctype="multipart/form-data">
-    <br>
-    <input type="file" name="uploadimage" class="uploadbutton" id="selectedFile" accept="image/*" style="display: none;">
-    <input type="button" value="Browse..." onclick="document.getElementById('selectedFile').click();">
-    <br><br><br><br>
-    <p><strong>Insert a keyword (optional)</strong> <br> Inserting a keyword will help you find the image, should you need it later on.<br><br> <strong>Only write one keyword.</strong></p>
-    <input type="text" name="keyword" pattern="[A-Za-z0-9]+">
-    <br><br>
-    <input type="submit" name="upload" value="Upload your image">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="signupbtn" type="submit">Upload your image</button>
     </form>
 
     <br>
