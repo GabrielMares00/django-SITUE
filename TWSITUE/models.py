@@ -1,6 +1,7 @@
 import os
 from uuid import uuid4
 
+from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
 
@@ -23,7 +24,7 @@ def path_and_rename(instance, filename):
 class Image(models.Model):
     # id = models.IntegerField(primary_key=True)
     image = models.ImageField(upload_to=path_and_rename)
-    uploader = models.ForeignKey(User,
+    uploader = models.ForeignKey(settings.AUTH_USER_MODEL,
                                  editable=False,
                                  null=True,
                                  blank=True,

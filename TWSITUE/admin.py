@@ -7,5 +7,9 @@ from TWSITUE.models import Image
 class ImageAdmin(admin.ModelAdmin):
     list_display = ('id', 'image', 'keyword', 'uploader', 'upload_date')
 
+    def save_model(self, request, obj, form, change):
+        obj.uploader = request.user
+        super().save_model(request, obj, form, change)
+
 
 admin.site.register(Image, ImageAdmin)

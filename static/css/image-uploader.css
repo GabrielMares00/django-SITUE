@@ -1,4 +1,4 @@
-input[type=file] {
+input[type=file], input[type=button] {
     width: 20%;
     padding: 12px 20px;
     border: 1px transparent;
@@ -20,6 +20,10 @@ input[type=submit], input[type=button] {
     display: inline;
 }
 
+input[type=button] {
+    outline: none;
+}
+
 input[type=text], input:active {
     max-width: 15vw;
     min-height: 1vh;
@@ -37,4 +41,14 @@ input[type=text], input:active {
 .center {
     text-align: center;
     align-items: center;
+}
+
+label {
+  background-color: #6DD5FA;
+  color: #1f1f1f;
+  padding: 0.5rem;
+  font-family: sans-serif;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  margin-top: 1rem;
 }

@@ -3,11 +3,9 @@
     height: 6vh;
     padding: 15px;
     margin: 5px 0 22px 0;
-    border: none;
     background: #6DD5FA !important;
     resize: none;
-    border-style: none;
-    border-color: transparent;
+    border: none transparent;
     text-align: center;
 }
 
@@ -16,11 +14,9 @@
     height: 20vh;
     padding: 15px;
     margin: 5px 0 22px 0;
-    border: none;
     background: #6DD5FA !important;
     resize: none;
-    border-style: none;
-    border-color: transparent;
+    border: none transparent;
 }
 
 input[type=text] {

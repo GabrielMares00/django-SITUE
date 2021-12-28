@@ -22,6 +22,10 @@ from django.urls import path
 # from TWSITUE import views as mainPage
 from base import settings
 
+admin.site.site_header = "SITUE Admin"
+admin.site.site_title = "SITUE Admin Portal"
+admin.site.index_title = "Welcome to SITUE Portal"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("TWSITUE.urls"))

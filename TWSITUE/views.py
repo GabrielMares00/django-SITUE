@@ -34,7 +34,9 @@ def imageUploader(request):
         form = ImageUploadForm(request.POST, request.FILES)
 
         if form.is_valid():
-            file = form.save()
+            image = form.save(commit=False)
+            image.uploader = request.user
+            image.save()
 
             return redirect(imageUploadedView)
     else:

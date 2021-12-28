@@ -57,3 +57,11 @@ class ImageUploadForm(forms.ModelForm):
     class Meta:
         model = Image
         fields = ['image', 'keyword']
+
+    def __init__(self, *args, **kwargs):
+        super(ImageUploadForm, self).__init__(*args, **kwargs)
+        self.label_suffix = ""
+        self.fields['image'].widget.attrs['hidden'] = True
+        self.fields['image'].label = "Select Your Image"
+        self.fields['keyword'].widget.attrs['placeholder'] = "Keyword"
+        self.fields['keyword'].label = ""
