@@ -4,58 +4,13 @@ from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
-from TWSITUE.forms import ImageUploadForm
+from TWSITUE.forms import ImageUploadForm, AuthForm, UserCreateForm
 
-
-class UserCreateForm(UserCreationForm):
-    email = forms.EmailField(required=True,
-                             label='Email',
-                             error_messages={'exists': 'Sorry, but this email is already used.'})
-
-    class Meta:
-        model = User
-        fields = ("username", "email", "password1", "password2")
-
-    def __init__(self, *args, **kwargs):
-        super(UserCreateForm, self).__init__(*args, **kwargs)
-        self.fields['username'].widget.attrs['placeholder'] = 'Username'
-        self.fields['password1'].widget.attrs['placeholder'] = 'Password'
-        self.fields['password2'].widget.attrs['placeholder'] = 'Repeat Password'
-        self.fields['email'].widget.attrs['placeholder'] = 'Email'
-
-        for fieldname in ['username', 'password1', 'password2']:
-            self.fields[fieldname].help_text = None
-
-        for fieldname in ['username', 'password1', 'password2', 'email']:
-            self.fields[fieldname].label = ""
-
-    def save(self, commit=True):
-        user = super(UserCreateForm, self).save(commit=False)
-        user.email = self.cleaned_data['email']
-
-        if commit:
-            user.save()
-        return user
-
-    def clean_email(self):
-        if User.objects.filter(email=self.cleaned_data['email']).exists():
-            raise ValidationError(self.fields['email'].error_messages['exists'])
-        return self.cleaned_data['email']
-
-
-class AuthForm(AuthenticationForm):
-    def __init__(self, *args, **kwargs):
-        super(AuthForm, self).__init__(*args, **kwargs)
-
-        self.fields['username'].widget.attrs['placeholder'] = 'Username'
-        self.fields['password'].widget.attrs['placeholder'] = 'Password'
-
-        for fieldname in ['username', 'password']:
-            self.fields[fieldname].label = ""
 
 # Create your views here.
+from TWSITUE.models import Image
 
 
 def home(request):
@@ -79,7 +34,7 @@ def imageUploader(request):
         form = ImageUploadForm(request.POST, request.FILES)
 
         if form.is_valid():
-            form.save()
+            file = form.save()
 
             return redirect(imageUploadedView)
     else:
@@ -89,7 +44,11 @@ def imageUploader(request):
 
 
 def imageUploadedView(request):
-    return HttpResponse('successfully uploaded')
+    obj = Image.objects.latest('id')
+    context = {
+        'image_path': obj.image
+    }
+    return render(request, 'image-uploaded.html', context)
 
 
 def textUploader(request):

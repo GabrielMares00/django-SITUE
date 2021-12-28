@@ -13,7 +13,7 @@ urlpatterns = [
     path('image-search', views.imageSearcher),
     path('text-search', views.textSearcher),
     path('image-uploader', views.imageUploader),
-    path('upload-done-template-image', views.imageUploadedView),
+    path('image-uploaded', views.imageUploadedView),
     path('text-uploader', views.textUploader),
     path('logout', views.logoutView)
 ]
