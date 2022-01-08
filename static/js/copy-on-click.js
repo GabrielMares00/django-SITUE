@@ -1,8 +1,3 @@
-//Copies share page link on click
-document.getElementById("copy-text-share").onclick = function() {
-    this.select();
-    document.execCommand('copy');
-}
 
 //Copies direct page link on click
 document.getElementById("copy-text-direct").onclick = function() {

@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.db import models
 
 
-def path_and_rename(instance, filename):
+def path_and_rename_for_image(instance, filename):
     upload_to = 'images/'
     ext = filename.split('.')[-1]
     # get filename
@@ -23,11 +23,17 @@ def path_and_rename(instance, filename):
 
 class Image(models.Model):
     # id = models.IntegerField(primary_key=True)
-    image = models.ImageField(upload_to=path_and_rename)
+    image = models.ImageField(upload_to=path_and_rename_for_image,
+                              null=False)
     uploader = models.ForeignKey(settings.AUTH_USER_MODEL,
                                  editable=False,
                                  null=True,
                                  blank=True,
                                  on_delete=models.CASCADE)
-    keyword = models.CharField(max_length=32)
+    keyword = models.CharField(max_length=32,
+                               null=True,
+                               blank=True)
+    raw_name = models.CharField(max_length=32,
+                                null=True)
     upload_date = models.DateTimeField(auto_now=True)
+

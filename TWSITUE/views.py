@@ -34,21 +34,29 @@ def imageUploader(request):
         form = ImageUploadForm(request.POST, request.FILES)
 
         if form.is_valid():
-            image = form.save(commit=False)
-            image.uploader = request.user
-            image.save()
+            imageToUpload = form.save(commit=False)
+            imageToUpload.uploader = request.user
+            imageToUpload.save()
+            imageToUpload.raw_name = imageToUpload.image.url[14:]
+            imageToUpload.save()
 
-            return redirect(imageUploadedView)
+            imageName = imageToUpload.raw_name.split('.')[0]
+            imageExtension = imageToUpload.raw_name.split('.')[1]
+
+            return redirect(imageUploadedView, imageName, imageExtension)
     else:
         form = ImageUploadForm()
 
     return render(request, 'image-uploader.html', {'form': form})
 
 
-def imageUploadedView(request):
-    obj = Image.objects.latest('id')
+def imageUploadedView(request, imageUploadedName, imageUploadedExtension):
     context = {
-        'image_path': obj.image
+        'image_path': imageUploadedName,
+        'image_extension': imageUploadedExtension,
+        'image_combined': imageUploadedName + '.' + imageUploadedExtension,
+        'link_path': '127.0.0.1:8000/media/images/' + imageUploadedName + '.' + imageUploadedExtension,
+        'media_path': 'media/images/' + imageUploadedName + '.' + imageUploadedExtension
     }
     return render(request, 'image-uploaded.html', context)
 

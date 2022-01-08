@@ -5,7 +5,7 @@ body {
 input[type=text] {
     display: flex;
     border-radius: 5px;
-    width: 20vw;
+    width: 30vw;
     padding: 15px;
     margin: 5px 0 22px 0;
     border: none rgba(60, 59, 63, 0.6);
@@ -15,21 +15,8 @@ input[type=text] {
 
 .shareLink {
     text-align: center;
-    width: 21vw;
+    width: 15vw;
 }
-
-.unselectable {
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
- 
-    /*
-      Introduced in Internet Explorer 10.
-      See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
-    */
-    -ms-user-select: none;
-    user-select: none;
- }
 
 #linksContainer {
     flex-direction: column;

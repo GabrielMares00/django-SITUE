@@ -92,11 +92,9 @@ header {
 }
 
 .social-media {
-    position: fixed;
-    left: 50%;
-    bottom: 20px;
-    transform: translate(-50%, -50%);
-    margin: 0 auto;
+    padding-top: 15%;
+    padding-bottom: 3%;
+    margin-top: auto;
 }
 
 #small-logo {

@@ -63,5 +63,5 @@ class ImageUploadForm(forms.ModelForm):
         self.label_suffix = ""
         self.fields['image'].widget.attrs['hidden'] = True
         self.fields['image'].label = "Select Your Image"
-        self.fields['keyword'].widget.attrs['placeholder'] = "Keyword"
+        self.fields['keyword'].widget.attrs['placeholder'] = "Keyword (optional)"
         self.fields['keyword'].label = ""

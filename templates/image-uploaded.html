@@ -36,30 +36,30 @@
         <div id="shareContainer">
         <center>
         <div id="imageContainer">
-            <a href="media/{{ image_path }}">
-                <img src="media/{{ image_path }}" id="image"/>
+            <a href="http://{{ link_path }}">
+                <img src="../{{ media_path }}" id="image">
             </a>
         </div>
 
         <br><br><br>
 
-        <div id="linksContainer" class="unselectable">
+        <div id="linksContainer">
             <p>Direct Link</p>
             <div class="popup" onclick="copyOnClick()">
-                <input type="text" class="shareLink unselectable" id="copy-text-share" value="127.0.0.1:8000/media/{{ image_path }}" readonly><br><br>
-                <span class="popuptext" id="popupSucces">Link copied succesfully</span>
+                <input type="text" class="shareLink unselectable" id="copy-text-direct"
+                       value="{{ link_path }}" readonly><br><br>
             </div>
 
             <p>BBCode (Forums)</p>
             <div class="popup" onclick="copyOnClick()">
-                <input type="text" class="shareLink unselectable" id="copy-text-bbcode" value="[img]127.0.0.1:8000/media/{{ image_path }}[/img]" readonly><br><br>
-                <span class="popuptext" id="popupSucces">Link copied succesfully</span>
+                <input type="text" class="shareLink unselectable" id="copy-text-bbcode"
+                       value="[img]127.0.0.1:8000/media/images/{{ image_path }}[/img]" readonly><br><br>
             </div>
 
             <p>Markdown (Reddit)</p>
             <div class="popup" onclick="copyOnClick()">
-                <input type="text" class="shareLink unselectable" id="copy-text-markdown" value="[SITUE](127.0.0.1:8000/media/{{ image_path }})" readonly><br><br>
-                <span class="popuptext" id="popupSucces">Link copied succesfully</span>
+                <input type="text" class="shareLink unselectable" id="copy-text-markdown"
+                       value="[SITUE](127.0.0.1:8000/media/images/{{ image_path }})" readonly><br><br>
             </div>
         </div>
         </center>
