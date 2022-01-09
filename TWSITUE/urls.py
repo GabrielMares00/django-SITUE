@@ -15,6 +15,7 @@ urlpatterns = [
     path('image-uploader', views.imageUploader),
     path(r'image-uploaded/<imageUploadedName>.<imageUploadedExtension>', views.imageUploadedView),
     path('text-uploader', views.textUploader),
+    path('text-uploaded/<textID>', views.textUploadedView),
     path('logout', views.logoutView)
 ]
 

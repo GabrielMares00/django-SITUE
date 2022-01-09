@@ -66,9 +66,9 @@ li {
 }
 
 .left:hover, .right:hover {
-    background: black;
+    background: #6dd5fa;
     text-decoration: none;
-    color: #fff;
+    color: #010101;
 }
 
 header {
@@ -124,8 +124,7 @@ header {
     margin: 4px 2px;
     cursor: pointer;
     display: inline;
-  }
-
+}
 
 .upload-window, .upload-window-text {
     display: none;
@@ -167,7 +166,7 @@ header {
 }
 
 .close:hover, .close:focus, .closeText:hover, .closeText:focus {
-    color: black;
+    color: #6dd5fa;
     text-decoration: none;
     cursor: pointer;
 }

@@ -36,14 +36,6 @@ button:hover {
   opacity:1;
 }
 
-input:active {
-  min-width: 20vw;
-  min-height: 1vh;
-  text-align: center;
-  background: #6DD5FA !important;
-  color: #1f1f1f;
-}
-
 .errorlist li {
   list-style: none;
 }
@@ -55,4 +47,8 @@ input:active {
 
 li {
   color: black;
+}
+
+a {
+  color: darkblue !important;
 }

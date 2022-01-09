@@ -56,3 +56,13 @@ h4 {
     color: black;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.textArea {
+    width: 50%;
+    height: 20vh;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    background: #6DD5FA !important;
+    resize: none;
+    border: none transparent;
+}

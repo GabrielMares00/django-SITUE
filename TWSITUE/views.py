@@ -6,11 +6,10 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
-from TWSITUE.forms import ImageUploadForm, AuthForm, UserCreateForm
-
+from TWSITUE.forms import ImageUploadForm, AuthForm, UserCreateForm, TextUploadForm
 
 # Create your views here.
-from TWSITUE.models import Image
+from TWSITUE.models import Image, Text
 
 
 def home(request):
@@ -22,11 +21,35 @@ def about(request):
 
 
 def imageSearcher(request):
-    return render(request, "image-search.html", {})
+    context = {}
+
+    if request.method == 'GET':
+        data = Image.objects.all()
+
+        if request.GET.get('keyword') != '':
+            data = data.filter(keyword=request.GET.get('keyword'))
+
+        context = {
+            'images': data
+        }
+
+    return render(request, "image-search.html", context)
 
 
 def textSearcher(request):
-    return render(request, "text-search.html", {})
+    context = {}
+
+    if request.method == 'GET':
+        data = Text.objects.all()
+
+        if request.GET.get('keyword') != '':
+            data = data.filter(keyword=request.GET.get('keyword'))
+
+        context = {
+            'texts': data
+        }
+
+    return render(request, "text-search.html", context)
 
 
 def imageUploader(request):
@@ -62,7 +85,30 @@ def imageUploadedView(request, imageUploadedName, imageUploadedExtension):
 
 
 def textUploader(request):
-    return render(request, "text-uploader.html", {})
+    if request.method == 'POST':
+        form = TextUploadForm(request.POST)
+
+        if form.is_valid():
+            textToUpload = form.save(commit=False)
+            textToUpload.uploader = request.user
+            textToUpload.save()
+
+            textID = textToUpload.generated_name
+
+            return redirect(textUploadedView, textID)
+    else:
+        form = TextUploadForm()
+
+    return render(request, 'text-uploader.html', {'form': form})
+
+
+def textUploadedView(request, textID):
+    textObject = Text.objects.all().filter(generated_name=textID)
+    context = {
+        'text_title': textObject.values()[0]['title'],
+        'text_actual': textObject.values()[0]['text']
+    }
+    return render(request, 'text-uploaded.html', context)
 
 
 def loginPage(request):

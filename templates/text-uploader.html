@@ -25,32 +25,16 @@
         </div>
     </div>
 
-    <center><img src="../static/css/Logo.png" class="logo"></center>
+    <br><br><br><br>
 
-    <center>
-        <form action="" method="POST">
-              <header>Write your Text</header>
-              <br>
+    <header>Write your Text</header>
 
-              <label for="title"><b>Title</b></label>
-              <br>
-              <textarea type="text" placeholder="Write your title (optional)" name="title" class="titleArea"></textarea>
-
-              <br>
-              <br>
-
-              <label for="textwall"><b>Text</b></label>
-              <br>
-              <textarea id="textwall" type="text" placeholder="Write your text" name="textwall" class="textArea"></textarea>
-              <br>
-              <br>
-
-              <p><strong>Insert a keyword (optional)</strong> <br> Inserting a keyword will help you find the image, should you need it later on.<br><br> <strong>Only write one keyword.</strong></p>
-              <input type="text" name="keyword" pattern="[A-Za-z0-9]+">
-              <br><br>
-
-              <input name='upload' type="submit" value="Upload your text" style="background: #2980b9;">
-        </form> 
+        <center>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+            <button class="signupbtn" type="submit">Upload your text</button>
+            </form>
         </center>
 
         <br>

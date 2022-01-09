@@ -4,6 +4,7 @@ from uuid import uuid4
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
+from django.template.defaultfilters import truncatechars
 
 
 def path_and_rename_for_image(instance, filename):
@@ -37,3 +38,23 @@ class Image(models.Model):
                                 null=True)
     upload_date = models.DateTimeField(auto_now=True)
 
+
+class Text(models.Model):
+    title = models.CharField(max_length=128,
+                             blank=False)
+    text = models.TextField(blank=False)
+    uploader = models.ForeignKey(settings.AUTH_USER_MODEL,
+                                 editable=False,
+                                 null=True,
+                                 blank=True,
+                                 on_delete=models.CASCADE)
+    keyword = models.CharField(max_length=32,
+                               null=True,
+                               blank=True)
+    generated_name = models.CharField(max_length=32,
+                                      default=uuid4().hex)
+    upload_date = models.DateTimeField(auto_now=True)
+
+    @property
+    def short_description(self):
+        return truncatechars(self.text, 100)

@@ -11,7 +11,6 @@
     align-content: center;
     margin-bottom: 25px;
     text-decoration: none;
-    outline: none;
 }
 
 .active, .collapsible:hover, .collapsible:active, .collapsible::selection, .collapsible:default, .collapsible:focus {
@@ -58,6 +57,6 @@
 }
 
 @keyframes animatetop {
-    from {top: 300px; opacity: 0};
-    to {top: 0; opacity: 1};
+    from {top: 300px; opacity: 0;}
+    to {top: 0; opacity: 1;}
 }

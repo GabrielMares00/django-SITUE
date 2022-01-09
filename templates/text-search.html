@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SITUE - Image Search</title>
+    <link rel="icon" href="../static/css/favicon.ico">
 
     <link href="{% static 'css/reset.css' %}" rel="stylesheet" type="text/css">
     <link href="https://www.w3schools.com/w3css/3/w3.css" rel="stylesheet">
@@ -23,12 +24,12 @@
             {% include 'nav-bar.html' %}
         </div>
 
-        <center><img src="../static/css/New Logo.png" class="logo"></center>
+        <br/><br/><br/><br/>
         <header>Text searcher</header>
 
     <center>
         <div id="search">
-            <form action="" method="POST" style="border-radius: 5px; border-color: rgba(60,59,63,0.6);">
+            <form action="" method="GET" style="border-radius: 5px; border-color: rgba(60,59,63,0.6);">
               <h2>Write the keywords you are looking for</h2>
               <br>
               <br>
@@ -36,14 +37,18 @@
               <br><br>
               <p><strong>Note:</strong> Leave the text blank if you are looking for texts not keyworded.</p>
               
-              <input name='search' type="submit" value="Search">
+              <input type="submit" value="Search">
         </form> 
         <br>
 
-        <table id="searchResults">
-            <tr>
-            </tr>
-        </table>
+        <div class="searchTextResults">
+            {% for text in texts %}
+                <a href="{{ "http://127.0.0.1:8000/text-uploaded/" }}{{ text.generated_name }}">
+                    {{ text.title }} uploaded by {{ text.uploader }}
+                </a>
+                <br/><br/><br/>
+            {% endfor %}
+        </div>
         <br>
             </div>
     </center>

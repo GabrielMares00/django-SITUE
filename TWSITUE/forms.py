@@ -3,7 +3,7 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 
-from TWSITUE.models import Image
+from TWSITUE.models import Image, Text
 
 
 class UserCreateForm(UserCreationForm):
@@ -63,5 +63,22 @@ class ImageUploadForm(forms.ModelForm):
         self.label_suffix = ""
         self.fields['image'].widget.attrs['hidden'] = True
         self.fields['image'].label = "Select Your Image"
+        self.fields['keyword'].widget.attrs['placeholder'] = "Keyword (optional)"
+        self.fields['keyword'].label = ""
+
+
+class TextUploadForm(forms.ModelForm):
+    class Meta:
+        model = Text
+        fields = ['title', 'text', 'keyword']
+
+    def __init__(self, *args, **kwargs):
+        super(TextUploadForm, self).__init__(*args, **kwargs)
+        self.label_suffix = ""
+        self.fields['title'].label = ""
+        self.fields['title'].widget.attrs['placeholder'] = 'Title'
+        self.fields['text'].label = ""
+        self.fields['text'].widget.attrs['class'] = 'textArea'
+        self.fields['text'].widget.attrs['placeholder'] = 'Text'
         self.fields['keyword'].widget.attrs['placeholder'] = "Keyword (optional)"
         self.fields['keyword'].label = ""
